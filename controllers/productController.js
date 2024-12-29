@@ -93,3 +93,13 @@ exports.updateProduct = async (req, res) => {
       res.status(500).send('Error deleting product');
     }
   };
+
+  exports.exploreRecipe = async (req, res) => {
+    try {
+      let recipeId = req.params.id;
+      const recipe = await Product.findByID(recipeId);
+      res.render('recipe', {title:'Cooking Blog - Product', recipe});
+    } catch (err) {
+      res.status(500).send('Error deleting product');
+    }
+  };
