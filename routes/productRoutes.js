@@ -7,9 +7,9 @@ const upload = require('../config/multer');
 const methodOverride = require('method-override');
 router.use(methodOverride('_method'));
 
-router.get('/',productController.getAllProducts);
-router.get('/create',productController.renderCreateForm);
-router.post('/', upload.single('image'),productController.createProduct);
+router.get('/',productController.getAllProducts); //show all product
+router.get('/create',productController.renderCreateForm); //show create form
+router.post('/', upload.single('image'),productController.createProduct); //create 
 router.get('/:id', productController.getProductById); // Show product details
 router.get('/:id/edit', productController.renderEditForm); // Show edit form
 router.put('/:id', upload.single('image'),productController.updateProduct); // Update product

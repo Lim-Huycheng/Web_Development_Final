@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-  <div class="row">
+  <!-- <div class="row">
     <% products.forEach(product => { %>
       <div class="col-lg-3 col-md-4 col-sm-12 mb-4">
         <div class="card" style="width: 18rem;">
@@ -12,5 +12,104 @@
         </div>
       </div>
         <% }); %>
+  </div> -->
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-4 mb-4">
+    <div class="col-12 col-lg-6">
+      <img src="uploads/Group 1.jpg" class="d-block mx-lg-auto img-fluid">
+    </div>
+
+    <div class="col-12 col-lg-6">
+      <h1 class="display-5 fw-bold mb-3">Huge selection of delicious recipe ideas</h1>
+      <p class="lead">
+        Explore our huge selection of delicious recipe ideas including; easy desserts, delicious vegan and vegetarian dinner indeas, gorgeous pasta recipe, quick bakes, family-friendly meals and gluten-free recipes.
+      </p>
+      <div class="d-grip gap-2 d-md-flex justify-content-md-start">
+        <a href="/explore-latest" class="btn btn-primary btn-dark btn-lg px-4 me-md-2">Explore Lastest</a>
+        <a href="/random-recipe" class="btn btn-outline-danger btn-lg px-4 me-md-2">Show Random</a>
+      </div>
+    </div>
   </div>
+
+<!-- Categories Menu -->
+<div class="row row-cols-2 row-cols-lg-6 g-2 g-la-3 py-4">
+
+  <% if(products != '') { %>
+    <% products.forEach(function(products, index) { %>
+        <a href="#" class="col text-center category__link">
+          <div class="category__img shadow">
+            <img src="<%- products.image%>" loading="Lazy" class="img-fluid">
+          </div>
+          <div class="pt-1"><%- products.name %></div>
+        </a>
+    <% }) %>
+  <% } %>
+
+  
+  <a href="/categories" class="col text-center category__link">
+    <div class="category__img shadow">
+      <img src="uploads/viewmore.jpg" alt="View All Categories" loading="Lazy" class="img-fluid">
+    </div>
+    <div class="pt-1">View All</div>
+  </a>
+</div>
+
+<!-- Explore Menu End -->
+
+
+<!--Lastest Start-->
+  <section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+      <h2>Latest Recipes</h2>
+      <a href="/explore-latest" class="ms-auto">View More</a>
+    </div>
+
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+      <a href="/recipe/#" class="col text-center category__link">
+        <div class="category__img--large shadow">
+          <img src="uploads/Tasty Foods.jpg" alt="Chocolate Banoffe" loading="Lazy" class="img-fluid">
+        </div>
+        <div class="pt-1">Chocolate Banoffe</div>
+      </a>
+
+      <a href="/recipe/#" class="col text-center category__link">
+        <div class="category__img--large shadow">
+          <img src="uploads/Tasty Foods.jpg" alt="Chocolate Banoffe" loading="Lazy" class="img-fluid">
+        </div>
+        <div class="pt-1">Chocolate Banoffe</div>
+      </a>
+
+      <a href="/recipe/#" class="col text-center category__link">
+        <div class="category__img--large shadow">
+          <img src="uploads/Tasty Foods.jpg" alt="Chocolate Banoffe" loading="Lazy" class="img-fluid">
+        </div>
+        <div class="pt-1">Chocolate Banoffe</div>
+      </a>
+
+      <a href="/recipe/#" class="col text-center category__link">
+        <div class="category__img--large shadow">
+          <img src="uploads/Tasty Foods.jpg" alt="Chocolate Banoffe" loading="Lazy" class="img-fluid">
+        </div>
+        <div class="pt-1">Chocolate Banoffe</div>
+      </a>
+    </div>
+  </section>
+
+<!-- Lastest End -->
+
+
+
+<!-- Sunmit Start -->
+
+  <section class="px-4 py-5 my-5 text-center">
+    <img src="uploads/Group 1.jpg" class="d-block mx-auto mb-4 img-fluid" alt="Publish Your recipe for Free today" width="566" height="208" loading="lazy">
+    <h1 class="display-5 fw-bold">Publish your recipe for Free today</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Publish your Recipe in front of thousand of people for free.</p>
+      <div class="d-grip gap-2 d-sm-flex justify-content-sm-center">
+        <a href="" class="btn btn-primary btn-dark btn-lg">Submit Recipe</a>
+      </div>
+    </div>
+  </section>
+<!-- Submit End -->
+
 <%- include('../partials/footer') %>
