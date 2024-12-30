@@ -36,7 +36,7 @@
 
   <% if(products != '') { %>
     <% products.forEach(function(products, index) { %>
-        <a href="#" class="col text-center category__link">
+        <a href="/product/<%= products.id %>" class="col text-center category__link">
           <div class="category__img shadow">
             <img src="<%- products.image%>" loading="Lazy" class="img-fluid">
           </div>
@@ -46,7 +46,7 @@
   <% } %>
 
   
-  <a href="/categories" class="col text-center category__link">
+  <a href="/product" class="col text-center category__link">
     <div class="category__img shadow">
       <img src="uploads/viewmore.jpg" alt="View All Categories" loading="Lazy" class="img-fluid">
     </div>

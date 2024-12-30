@@ -14,7 +14,8 @@ router.get('/:id', productController.getProductById); // Show product details
 router.get('/:id/edit', productController.renderEditForm); // Show edit form
 router.put('/:id', upload.single('image'),productController.updateProduct); // Update product
 router.delete('/:id', productController.deleteProduct); // Delete product
-router.get('/show/:id',productController.exploreRecipe);
+// router.get('/show/:id',productController.exploreRecipe);
+router.get('/products/:id' , productController.getProductById); // To link to product details
 
 
 module.exports = router;
