@@ -1,30 +1,28 @@
 <%- include('../partials/header') %>
-<div style="background-color: rgb(238, 220, 208); width: 950px; height:600px ; border-radius: 20px;">
-  <div style="padding-left: 100px; padding-top: 30px;">
-    <h1 class="mb-4">Product Details</h1>
+<div style="background-color: rgb(238, 220, 208); width: 100%; max-width: 950px; margin: auto; border-radius: 20px; ">
+  <div style="padding: 30px 20px ; ">
+    <h1 class="mb-4" style="padding-left: 30px;">Product Details</h1>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item" style="padding-left: 40px;"><a href="/">Home</a></li>
         <li class="breadcrumb-item active" aria-current="page"><%= product.name %></li>
       </ol>
     </nav>
-    <div style="display: flex; padding-top: 10px; height: 350px;">
-      <!-- Image section with equal height and width to the product details -->
-      <div style="width: 500px; height: 350px;">
-        <img src="<%= product.image %>" alt="<%= product.name %>" class="img-thumbnail card" style="width: 100%; height: 100%; object-fit: cover;">
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: center; padding-top: 10px; padding-bottom: 30px;">
+      <!-- Image section -->
+      <div style="flex: 1 1 300px; max-width: 500px; height: 350px; display: flex; align-items: center; justify-content: center;">
+        <img src="<%= product.image %>" alt="<%= product.name %>" class="img-thumbnail card" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
       </div>
       
-      <!-- Product details section with equal height to the image -->
-      <div style="padding-left: 30px; height: 350px; display: flex; flex-direction: column; justify-content: space-between;">
-        <div class="card p-4" style="background-color: aliceblue; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-          <p><strong>ID:</strong> <%= product.id %></p>
-          <p><strong>Name:</strong> <%= product.name %></p>
-          <p><strong>Price:</strong> $<%= product.price %></p>
-          <p><strong>Description:</strong> <%= product.description %></p>
-        </div>
+      <!-- Product details section -->
+      <div style="flex: 1 1 300px; max-width: 300px; height: 350px; display: flex; flex-direction: column; justify-content: space-between; background-color: aliceblue; border-radius: 10px; padding: 20px;">
+        <p><strong>ID:</strong> <%= product.id %></p>
+        <p><strong>Name:</strong> <%= product.name %></p>
+        <p><strong>Price:</strong> $<%= product.price %></p>
+        <p><strong>Description:</strong> <%= product.description %></p>
       </div>
     </div>
-    <a href="/product" class="btn btn-secondary mt-5">Back to List</a>
+    
   </div>
 </div>
 <%- include('../partials/footer') %>
