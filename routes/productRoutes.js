@@ -17,4 +17,6 @@ router.delete('/:id', productController.deleteProduct); // Delete product
 router.get('/show/:id',productController.exploreRecipe);
 
 
+
 module.exports = router;
+

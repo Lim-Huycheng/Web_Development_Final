@@ -35,8 +35,10 @@ app.use((req, res, next) => {
   next();
 });
 
-
+//#########
 app.set('view engine','ejs');
+
+//###################
 
 const PORT = process.env.PORT || 3000;
 
