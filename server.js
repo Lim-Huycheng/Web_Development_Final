@@ -47,7 +47,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/uploads', express.static('public/uploads'));
 app.use('/product',productRoutes);
-app.use('/',indexRoutes)
+app.use('/', indexRoutes);
+
+
 app.listen(PORT,()=>{
     console.log("server is running on port "+PORT);
 });

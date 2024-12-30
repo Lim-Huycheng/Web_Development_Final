@@ -1,105 +1,17 @@
-
-
+<%- include('../partials/header') %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In / Sign Up</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url(Screenshot\ 2024-12-27\ 084807.png);
-            background-size: cover;
-            background-position: center;
-            filter: blur(4px);
-            z-index: 0;
-        }
-
-        .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .form-box {
-            
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            width: 300px;
-            display: none;
-             filter: blur(0.3px);
-        }
-
-        .form-box.active {
-            display: block;
-        }
-
-        h2 {
-            text-align: center;
-            margin: 0 0 15px;
-        }
-
-        .input-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            filter: blur(0.3px);
-        }
-
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        p {
-            text-align: center;
-            margin-top: 10px;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
         <!-- Sign In Form -->
         <div class="form-box active" id="signInBox">
             <h2>Sign In</h2>
-            <form id="signInForm">
+            <form action="/user" id="signInForm">
                 <div class="input-group">
                     <label for="signInEmail">Email</label>
                     <input type="email" id="signInEmail" required>
@@ -152,3 +64,4 @@
     </script>
 </body>
 </html>
+<%- include('../partials/footer') %>

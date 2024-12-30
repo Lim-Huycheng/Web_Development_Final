@@ -48,6 +48,22 @@ exports.getProductById = async (req,res) => {
       }
 };
 
+// exports.getProductDetails = async (req, res) => {
+//   const productId = req.params.id;
+//   try {
+//       const product = await getProductById(productId);
+//       title = "Categories"
+//       if (product) {
+//           res.render('product/details', { product , title});
+//       } else {
+//           res.status(404).send('Product not found');
+//       }
+//   } catch (error) {
+//       res.status(500).send('Internal Server Error');
+//   }
+// };
+
+
 exports.renderEditForm = async (req, res) => {
     try {
       const product = await Product.getById(req.params.id);
@@ -94,12 +110,4 @@ exports.updateProduct = async (req, res) => {
     }
   };
 
-  exports.exploreRecipe = async (req, res) => {
-    try {
-      let recipeId = req.params.id;
-      const recipe = await Product.findByID(recipeId);
-      res.render('recipe', {title:'Cooking Blog - Product', recipe});
-    } catch (err) {
-      res.status(500).send('Error deleting product');
-    }
-  };
+  

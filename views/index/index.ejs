@@ -32,11 +32,12 @@
   </div>
 
 <!-- Categories Menu -->
+<h1>Explore Our Categories</h1>
 <div class="row row-cols-2 row-cols-lg-6 g-2 g-la-3 py-4">
-
+  
   <% if(products != '') { %>
     <% products.forEach(function(products, index) { %>
-        <a href="#" class="col text-center category__link">
+        <a href="/product/<%= products.id %>" class="col text-center category__link">
           <div class="category__img shadow">
             <img src="<%- products.image%>" loading="Lazy" class="img-fluid">
           </div>
@@ -45,8 +46,10 @@
     <% }) %>
   <% } %>
 
-  
-  <a href="/categories" class="col text-center category__link">
+<!-- categories END -->
+
+
+  <a href="/explore-categories" class="col text-center category__link">
     <div class="category__img shadow">
       <img src="uploads/viewmore.jpg" alt="View All Categories" loading="Lazy" class="img-fluid">
     </div>
@@ -54,54 +57,6 @@
   </a>
 </div>
 <!-- Explore Menu End -->
-
-
-<!--Lastest Start-->
-  <section class="pb-4 pt-4">
-    <div class="d-flex mb-2 align-items-center">
-      <h2>Latest Recipes</h2>
-      <a href="/explore-latest" class="ms-auto">View More</a>
-    </div>
-
-    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
-      <a href="/recipe/#" class="col text-center category__link">
-        <div class="category__img--large shadow">
-          <img src="uploads/Tasty Foods.jpg" alt="Chocolate Banoffe" loading="Lazy" class="img-fluid">
-        </div>
-        <div class="pt-1">Chocolate Banoffe</div>
-      </a>
-
-      <a href="/recipe/#" class="col text-center category__link">
-        <div class="category__img--large shadow">
-          <img src="uploads/Tasty Foods.jpg" alt="Chocolate Banoffe" loading="Lazy" class="img-fluid">
-        </div>
-        <div class="pt-1">Chocolate Banoffe</div>
-      </a>
-
-      <a href="/recipe/#" class="col text-center category__link">
-        <div class="category__img--large shadow">
-          <img src="uploads/Tasty Foods.jpg" alt="Chocolate Banoffe" loading="Lazy" class="img-fluid">
-        </div>
-        <div class="pt-1">Chocolate Banoffe</div>
-      </a>
-
-      <a href="/recipe/#" class="col text-center category__link">
-        <div class="category__img--large shadow">
-          <img src="uploads/Tasty Foods.jpg" alt="Chocolate Banoffe" loading="Lazy" class="img-fluid">
-        </div>
-        <div class="pt-1">Chocolate Banoffe</div>
-      </a>
-
-      <a href="/recipe/#" class="col text-center category__link">
-        <div class="category__img--large shadow">
-          <img src="uploads/Tasty Foods.jpg" alt="Chocolate Banoffe" loading="Lazy" class="img-fluid">
-        </div>
-        <div class="pt-1">Chocolate Banoffe</div>
-      </a>
-    </div>
-  </section>
-
-<!-- Lastest End -->
 
 
 
@@ -113,7 +68,7 @@
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4">Publish your Recipe in front of thousand of people for free.</p>
       <div class="d-grip gap-2 d-sm-flex justify-content-sm-center">
-        <a href="" class="btn btn-primary btn-dark btn-lg">Submit Recipe</a>
+        <a href="/product" class="btn btn-primary btn-dark btn-lg">Submit Recipe</a>
       </div>
     </div>
   </section>
