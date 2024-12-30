@@ -5,7 +5,7 @@ exports.getAllProducts = async (req,res) => {
     try{
         const products = await Product.getAll();
         title = "List product"
-        res.render('product/index',{products,title});
+        res.render('index/index',{products,title});
         
     }catch(err){
         res.status(500).send("Error fetching products");
@@ -47,6 +47,22 @@ exports.getProductById = async (req,res) => {
         res.status(500).send('Error fetching product');
       }
 };
+
+// exports.getProductDetails = async (req, res) => {
+//   const productId = req.params.id;
+//   try {
+//       const product = await getProductById(productId);
+//       title = "Categories"
+//       if (product) {
+//           res.render('product/details', { product , title});
+//       } else {
+//           res.status(404).send('Product not found');
+//       }
+//   } catch (error) {
+//       res.status(500).send('Internal Server Error');
+//   }
+// };
+
 
 exports.renderEditForm = async (req, res) => {
     try {
@@ -94,12 +110,4 @@ exports.updateProduct = async (req, res) => {
     }
   };
 
-  exports.exploreRecipe = async (req, res) => {
-    try {
-      let recipeId = req.params.id;
-      const recipe = await Product.findByID(recipeId);
-      res.render('recipe', {title:'Cooking Blog - Product', recipe});
-    } catch (err) {
-      res.status(500).send('Error deleting product');
-    }
-  };
+  
