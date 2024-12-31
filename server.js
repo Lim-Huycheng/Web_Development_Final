@@ -47,24 +47,24 @@ app.get('/user/login', (req, res) => {
  app.post('/user/login', (req, res) => {
   const { username, password } = req.body;
 
-  // Example validation (replace with your actual logic)
  
 });
-
-
  app.use(express.static(path.join(__dirname, 'public')));
 //###################
+
 //######### new login
-
-
-// Set up routes
 
 app.use(express.json());
 app.use('/user', userRoutes);
 
-
-
 //#############
+
+// link from to explore-lates
+app.set('views', path.join(__dirname, 'views'))
+//
+
+
+
 const PORT = process.env.PORT || 3000;
 
 
