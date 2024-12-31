@@ -1,85 +1,90 @@
 body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffe6cc;  /* Soft cream background */
+  margin: 0;
+  padding: 0;
 }
 
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url(Screenshot\ 2024-12-27\ 084807.png);
-    background-size: cover;
-    background-position: center;
-    filter: blur(4px);
-    z-index: 0;
-}
-
-.container {
-    position: relative;
-    z-index: 1;
-}
-
-.form-box {
-    
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    width: 300px;
-    display: none;
-     filter: blur(0.3px);
-}
-
-.form-box.active {
-    display: block;
+.login-container {
+  max-width: 420px;
+  margin: 100px auto;
+  background-color: #fff8e1;  /* Light yellow background */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid #ffb74d;  /* Subtle orange border */
 }
 
 h2 {
-    text-align: center;
-    margin: 0 0 15px;
+  text-align: center;
+  color: #ff7043;  /* Warm orange color */
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-family: 'Lobster', cursive;  /* Food-friendly cursive font */
 }
 
-.input-group {
-    margin-bottom: 15px;
+.form-group {
+  margin-bottom: 20px;
 }
 
 label {
-    display: block;
-    margin-bottom: 5px;
+  display: block;
+  font-weight: bold;
+  font-size: 18px;
+  color: #ff7043;
+  margin-bottom: 5px;
 }
 
 input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    filter: blur(0.3px);
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  border: 2px solid #ff7043;
+  border-radius: 8px;
+  background-color: #fff3e0;  /* Light peachy color */
+  box-sizing: border-box;
+  margin-top: 8px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #ff9800;  /* A darker orange for focus effect */
+  box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
 }
 
 button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  background-color: #ff9800;  /* Rich orange color */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease-in-out;
 }
 
 button:hover {
-    background-color: #0056b3;
+  background-color: #ff7043;  /* A darker orange on hover */
+}
+
+button:active {
+  background-color: #f4511e;  /* Darker orange when clicked */
 }
 
 p {
-    text-align: center;
-    margin-top: 10px;
+  text-align: center;
+  font-size: 16px;
+  color: #5d4037;  /* Subtle brown for a natural feel */
+  margin-top: 20px;
+}
+
+a {
+  color: #ff7043;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }

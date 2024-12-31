@@ -7,6 +7,7 @@ const flash = require('connect-flash');
 
 const productRoutes = require('./routes/productRoutes');
 const indexRoutes = require('./routes/indexRoutes');
+const userRoutes = require('./routes/userRoutes');
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 // app.use(session({
@@ -35,15 +36,38 @@ app.use((req, res, next) => {
   next();
 });
 
-//#########
+
 app.set('view engine','ejs');
 
-//###################
+//######### login
+app.get('/user/login', (req, res) => {
+ res.render('user/login');  // This will automatically look for views/user/login.ejs
+});
 
+ app.post('/user/login', (req, res) => {
+  const { username, password } = req.body;
+
+  // Example validation (replace with your actual logic)
+ 
+});
+
+
+ app.use(express.static(path.join(__dirname, 'public')));
+//###################
+//######### new login
+
+
+// Set up routes
+
+app.use(express.json());
+app.use('/user', userRoutes);
+
+
+
+//#############
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static(path.join(__dirname, 'public')));
-// app.use('/css', express.static('public/css'));
+
 
 app.use('/uploads', express.static('public/uploads'));
 app.use('/product',productRoutes);
