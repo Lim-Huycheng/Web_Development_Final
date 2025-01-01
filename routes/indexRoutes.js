@@ -26,8 +26,7 @@ module.exports = router;
 
 
 
-
-app.get('/about', (req, res) => {
+router.get('/aboutus', (req, res) => {
     const pageTitle = 'About Us';
     const pageDescription = 'Welcome to our website! Learn more about who we are and what we do.';
     const missionImage = 'https://media1.popsugar-assets.com/files/thumbor/oYivacUQxsjybVn80tgpJo2bahw/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2015/06/10/017/n/1922398/bc378e5c_shutterstock_93720934.jpg';
@@ -38,11 +37,11 @@ app.get('/about', (req, res) => {
         { name: 'Huon Sreynuth', role: 'Head Chef', image: 'https://th.bing.com/th/id/OIP.wNhO_nVpnxLtXq4vPT-6tgHaHa?pid=ImgDet&w=184&h=184&c=7&dpr=1.3' }
     ];
 
-    res.render('about', { pageTitle, pageDescription, missionImage, teamMembers });
+    res.render('aboutus', { pageTitle, pageDescription, missionImage, teamMembers });
 });
 
 
-app.get('/contact', (req, res) => {
+router.get('/contactus', (req, res) => {
     const pageTitle = 'Contact Us';
-    res.render('contact', { pageTitle });
+    res.render('contactus', { pageTitle });
 });
