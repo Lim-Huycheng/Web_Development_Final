@@ -1,4 +1,4 @@
-body {
+                                                                                                                                                                                                                                                          body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #ffe6cc;  /* Soft cream background */
   margin: 0;
@@ -8,9 +8,10 @@ body {
 .login-container {
   max-width: 420px;
   margin: 100px auto;
-  background-color: #fff8e1;  /* Light yellow background */
+  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+	background: linear-gradient(to right, #FF4B2B, #FF416C);
   padding: 30px;
-  border-radius: 12px;
+  border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   border: 2px solid #ffb74d;  /* Subtle orange border */
 }
@@ -49,7 +50,7 @@ input {
 input:focus {
   outline: none;
   border-color: #ff9800;  /* A darker orange for focus effect */
-  box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
+  /* box-shadow: 0 0 10px rgba(255, 152, 0, 0.5); */
 }
 
 button {
@@ -86,5 +87,8 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration:underline;
+}
+.submit button{
+	border-radius: 20px;
 }
