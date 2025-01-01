@@ -1,53 +1,43 @@
-<%- include('../partials/header') %>
-<link rel="stylesheet" href="/css/login.css"> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <!-- <link rel="stylesheet" href="/css/login.css"> -->
+</head>
+<body>
+  <%- include('../partials/header') %> <!-- Header Included -->
 
-<div class="container" id="container">
-	<div class="form-container sign-up-container">
-		<form action="#">
-			<h1>Create Account</h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<button>Sign Up</button>
-		</form>
-	</div>
-	<div class="form-container sign-in-container">
-		<form action="#">
-			<h1>Log In</h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<a href="#">Forgot your password?</a>
-      <div>
-        <button type="submit"><a href="/" class="login-button">Login</a></button>
+  <div class="login-container">
+    <h2>Login</h2>
+	<p>Welcome Back!</p>
+
+    <!-- Display flash messages -->
+    <% if (messages && messages.error) { %>
+      <div class="alert alert-danger">
+        <%= messages.error %>
       </div>
-		</form>
-	</div>
-	<div class="overlay-container">
-		<div class="overlay">
-			<div class="overlay-panel overlay-left">
-				
-				<p>To keep connected with us please login with your personal info</p>
-				<button class="ghost" id="signIn">Sign In</button>
-			</div>
-			<div class="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
-				<p>Enter your personal details and start journey with us</p>
-				<a href="/user/signup"><button  class="ghost" id="signUp">Sign Up</button></a>
-			</div>
-		</div>
-	</div>
-  <%- include('../partials/footer') %>
-</div>
+    <% } %>
 
+    <form action="/user/login" method="POST">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+	  <div class="submit">
+       <button type="submit"><a href="/" class="login-button">Login</a></button>
+	</div>
+    </form>
 
+    <p style="padding-top: 20px;">Don't have an account? <a href="/user/signup">Sign up</a></p>
+  </div>
+
+  <%- include('../partials/footer') %> <!-- Footer Included -->
+</body>
+</html>
