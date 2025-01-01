@@ -1,0 +1,40 @@
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+}
+
+.hero-section {
+  background: linear-gradient(to bottom right, #4e73df, #224abe);
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  margin-top: 15px;
+}
+
+.team-section img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 4px solid #4e73df;
+}
+
+.team-section h3 {
+  margin-top: 15px;
+  font-size: 1.5rem;
+  color: #4e73df;
+}
+
+.team-section p {
+  color: #6c757d;
+}
