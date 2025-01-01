@@ -21,11 +21,6 @@ router.get('/explore-latest', (req, res) => {
   });
 //
 
-module.exports = router;
-
-
-
-
 router.get('/about', (req, res) => {
     const pageTitle = 'About Us';
     const pageDescription = 'Welcome to our website! Learn more about who we are and what we do.';
@@ -45,3 +40,7 @@ router.get('/contact', (req, res) => {
     const pageTitle = 'Contact Us';
     res.render('contact', { pageTitle });
 });
+
+module.exports = router;
+
+
