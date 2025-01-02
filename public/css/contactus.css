@@ -5,7 +5,7 @@ body {
   }
   
   .hero-section {
-    background: linear-gradient(to bottom right, #4e73df, #224abe);
+    background:rgba(148, 187, 233,100);
     color: white;
     padding: 50px 20px;
     text-align: center;
