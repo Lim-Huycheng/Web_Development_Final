@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const indexController = require('../controllers/indexController');
 const mysql = require('mysql');
+const multer = require('multer');
 
 // Middleware for overriding methods
 const methodOverride = require('method-override');
@@ -22,6 +23,52 @@ db.connect(err => {
   }
   console.log('Connected to the database');
 });
+
+// Configure Multer for file uploads
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/uploads/'); // Adjust path to save images in the "public/uploads" folder
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname)); // Append timestamp to avoid duplicate filenames
+  },
+});
+const upload = multer({ storage });
+
+// Route to display all reviews
+router.get('/index-review', (req, res) => {
+  const query = 'SELECT * FROM product_review'; // Fetch all reviews from the "reviews" table
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error fetching reviews:', err.message);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+    res.render('index/index-review', { 'product_review': results }); // Pass the fetched reviews to the EJS template
+  });
+});
+
+// Route to display the "Add New Review" form
+router.get('/index/create-review', (req, res) => {
+  res.render('index/create-review'); // Render the review creation form
+});
+
+// Route to handle form submissions and save reviews to the database
+router.post('/index', upload.single('image'), (req, res) => {
+  const { name, price, description } = req.body;
+  const image = req.file ? `/uploads/${req.file.filename}` : null;
+
+  const query = 'INSERT INTO reviews (food_name, price, review, image) VALUES (?, ?, ?, ?)';
+  db.query(query, [name, parseFloat(price), description, image], (err) => {
+    if (err) {
+      console.error('Error saving the review:', err.message);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+    res.redirect('/index-review'); // Redirect to the reviews page after successful submission
+  });
+});
+
 
 router.get('/',indexController.getListProduct);
 //link to explore-latest and random-recipe
@@ -95,5 +142,3 @@ router.get('/exploremenu/:id', (req, res) => {
 
 
 module.exports = router;
-
-

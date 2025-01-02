@@ -2,23 +2,23 @@
 
 <h1 class="mb-4">Add New Review</h1>
 
-<form action="/index" method="post" class="card p-4"  enctype="multipart/form-data">
+<form action="/index" method="post" class="card p-4" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="name" class="form-label">Food's Name</label>
         <input type="text" class="form-control" name="name" required id="name">
     </div>
     <div class="mb-3">
         <label for="price" class="form-label">Food's Price</label>
-        <input type="number" class="form-control" name="price" required id="price">
+        <input type="number" class="form-control" name="price" step="0.01" required id="price">
     </div>
     <div class="mb-3">
         <label for="desc" class="form-label">Your Review</label>
-        <textarea name="description" id="desc"  class="form-control"></textarea>
+        <textarea name="description" id="desc" class="form-control" rows="4" required></textarea>
     </div>
     <div class="mb-3">
         <label for="image" class="form-label">Food's Image (Optional)</label>
         <input type="file" class="form-control" name="image" id="image" accept="image/*">
-      </div>
+    </div>
     <button type="submit" class="btn btn-primary mb-4">Save</button>
     <a href="/index" class="btn btn-secondary">Cancel</a>
 </form>

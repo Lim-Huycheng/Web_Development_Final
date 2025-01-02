@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <h1 class="mb-4">Reviews List</h1>
-<a href="index/create-review" class="btn btn-primary mb-3"> Add Your Review</a>
+<a href="/index/create-review" class="btn btn-primary mb-3">Add Your Review</a>
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
@@ -12,14 +12,21 @@
         </tr>
     </thead>
     <tbody>
-        <% product-review.forEach(product => { %>
+        <% product_review.forEach(products => { %>
             <tr>
-                <td><%= product.food_name %></td>
-                <td><%= product.price %></td>
-                <td><%= product.review %></td>
-                <td><img src="<%=product.image %>" alt="<%= product.name %>" class="img-thumbnail" width="200"></td>
+                <td><%= products.food_name %></td>
+                <td>$<%= products.price.toFixed(2) %></td>
+                <td><%= products.review %></td>
+                <td>
+                    <% if (products.image) { %>
+                        <img src="<%= product.image %>" alt="<%= product.food_name %>" class="img-thumbnail" width="200">
+                    <% } else { %>
+                        <p>No image available</p>
+                    <% } %>
+                </td>
             </tr>
-       <% }); %>
+        <% }); %>
     </tbody>
 </table>
+
 <%- include('../partials/footer') %>
