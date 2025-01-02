@@ -1,0 +1,9 @@
+.text-content {
+    margin: 0 auto; /* Center the text block */
+    padding: 20px; /* Add padding inside the block */
+    max-width: 800px; /* Limit the width for better readability */
+    text-align: justify; /* Align text for a clean layout */
+    font-size: 1.2rem; /* Increase the font size for better readability */
+    line-height: 1.6; /* Improve spacing between lines */
+    color: #333; /* Adjust text color for better contrast */
+}
