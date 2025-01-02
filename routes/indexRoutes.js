@@ -11,7 +11,7 @@ router.use(methodOverride('_method'));
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'root',
+  password: '123',
   database: 'gproducts'
 });
 
