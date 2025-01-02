@@ -69,7 +69,9 @@ h5{
     color: white !important;
 }
 
-
+.copy-right p{
+    color: black;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
