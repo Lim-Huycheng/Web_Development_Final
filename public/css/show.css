@@ -1,0 +1,108 @@
+/* General styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  .food-details-container {
+    background-color: whitesmoke;
+    width: 100%;
+    max-width: 950px;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .food-details-wrapper {
+    padding: 30px 20px;
+     margin-bottom: 20px; 
+  }
+  
+  .page-title {
+    margin-bottom: 20px;
+    padding-left: 30px;
+    font-size: 30px;
+  }
+  
+  .breadcrumb {
+    padding-left: 40px;
+    margin-bottom: 20px;
+  }
+  
+  .breadcrumb-item a {
+    text-decoration: none;
+    color:black;
+  }
+  
+  .breadcrumb-item a:hover {
+    text-decoration: none;
+  }
+  
+  /* Content section */
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0 30px;
+  }
+  
+  .image-container {
+    flex: 1 1 250px; /* Adjusted to smaller size */
+    max-width: 350px; /* Reduced maximum width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    max-height: 300px; /* Restrict maximum height */
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .details-container {
+    flex: 1 1 250px; /* Matches the image-container size */
+    max-width: 300px;
+    background-color:grey;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .image-container,
+    .details-container {
+      max-width: 100%; /* Allow full width on smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .page-title {
+      font-size: 20px;
+      padding-left: 15px;
+    }
+  
+    .breadcrumb {
+      padding-left: 20px;
+    }
+  
+    .product-image {
+      max-height: 250px; /* Further reduce height for smaller screens */
+    }
+  }
+  

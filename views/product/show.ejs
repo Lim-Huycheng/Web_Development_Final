@@ -1,23 +1,26 @@
 <%- include('../partials/header') %>
-<div style="background-color: rgb(238, 220, 208); width: 100%; max-width: 950px; margin: auto; border-radius: 20px; ">
-  <div style="padding: 30px 20px ; ">
-    <h1 class="mb-4" style="padding-left: 30px;">Food Details</h1>
+<link rel="stylesheet" href="/css/show.css">
+<div class="food-details-container">
+  <div class="food-details-wrapper">
+    <div class="page-title">
+      <i class="fa-solid fa-face-smile"></i>
+      <h1>Welcome To Food Details!</h1>
+    </div>
+ 
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item" style="padding-left: 40px;"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
         <li class="breadcrumb-item active" aria-current="page"><%= product.name %></li>
-       
       </ol>
     </nav>
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: center; padding-top: 10px; padding-bottom: 30px;">
+    <div class="content">
       <!-- Image section -->
-      <div style="flex: 1 1 300px; max-width: 500px; height: 350px; display: flex; align-items: center; justify-content: center;">
-        <img src="<%= product.image %>" alt="<%= product.name %>" class="img-thumbnail card" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+      <div class="image-container">
+        <img src="<%= product.image %>" alt="<%= product.name %>" class="product-image">
       </div>
       
       <!-- Product details section -->
-      <div style="flex: 1 1 300px; max-width: 300px; height: 350px; display: flex; flex-direction: column; justify-content: space-between; background-color: aliceblue; border-radius: 10px; padding: 20px; ">
-        <div>
+      <div class="details-container">
         <p><strong>ID:</strong> <%= product.id %></p>
         <p><strong>Name:</strong> <%= product.name %></p>
         <p><strong>Price:</strong> $<%= product.price %></p>
@@ -25,7 +28,6 @@
       </div>
       </div>
     </div>
-    
   </div>
 </div>
 <%- include('../partials/footer') %>
