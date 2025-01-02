@@ -1,24 +1,52 @@
 /* Navigation list container */
 .nav {
-    gap: 20px; /* Adds space between the links */
-    display: flex; /* Ensures even spacing between items */
-    justify-content: center; /* Center-aligns the links */
+  gap: 20px; /* Adds space between the links */
+  display: flex; /* Ensures even spacing between items */
+  justify-content: center; /* Center-aligns the links */
+  flex-wrap: nowrap; /* Prevents wrapping on smaller screens */
+}
+
+/* Default styles for navigation links */
+.nav-link {
+  color: #333; /* Default text color */
+  font-size: 1rem; /* Adjust font size */
+  text-transform: uppercase; /* Optional: Makes text uppercase */
+  transition: color 0.3s ease-in-out, background-color 0.5s ease-in-out;
+  padding: 5px 10px;
+  border-radius: 10px; 
+}
+
+/* Hover effect on navigation links */
+.nav-link:hover {
+  color: #007bff; 
+  background-color: red; 
+  text-decoration: none; 
+}
+
+/* Make sure the nav items don't wrap on small screens */
+@media (max-width: 375px) { /* Targeting devices like iPhone SE */
+  .nav {
+      flex-direction: row; /* Keep the links aligned horizontally */
+      gap: 5px; /* Reduce the gap between items */
+      justify-content: space-between; /* Distribute items evenly */
   }
-  
-  /* Default styles for navigation links */
+
   .nav-link {
-    color: #333; /* Default text color */
-    font-size: 1rem; /* Adjust font size */
-    text-transform: uppercase; /* Optional: Makes text uppercase */
-    transition: color 0.3s ease-in-out, background-color 0.5s ease-in-out;
-    padding: 5px 10px;
-    border-radius: 10px; 
+      font-size: 0.8rem; /* Make the font size smaller */
+      padding: 4px 8px; /* Reduce padding */
   }
-  
-  
-  .nav-link:hover {
-    color: #007bff; 
-    background-color: red; 
-    text-decoration: none; 
+}
+
+/* For medium-sized screens like iPhone 12 Pro */
+@media (max-width: 390px) { 
+  .nav {
+      flex-direction: row; 
+      gap: 15px; /* Adjust gap for better distribution */
+      justify-content: space-between;
   }
-  
+
+  .nav-link {
+      font-size: 0.9rem; /* Slightly smaller font for medium screens */
+      padding: 5px 10px; /* Keep the padding smaller but consistent */
+  }
+}

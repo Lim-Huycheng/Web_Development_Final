@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,34 +15,34 @@
 <body>
   <%- include('../partials/header') %>
 
-  <div class="menu-container">
-    <h1>Explore Our Menu</h1>
-    <p>Below are our menu</p>
-    <p>Click on View Details for more information. Enjoy~~</p><br>
-    <div class="menu-grid">
+  <div class="menu-container container">
+    <h1 class="text-center mb-4">Explore Our Menu</h1>
+    <p class="text-center mb-5">Below are our menu items. Click on 'View Details' for more information. Enjoy~~</p>
+    
+    <div class="menu-grid row">
         <% if (products && products.length > 0) { %>
             <% products.forEach(food => { %>
-                <li>
-                    <h3><%= food.name %></h3>
-                    <!-- Display the food image -->
-                    <div class="category__img shadow">
-                        <img src="<%- products.image%>" loading="Lazy" class="img-fluid">
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="menu-item">
+                        <h3 class="text-center"><%= food.name %></h3>
+                        <!-- Display the food image -->
+                        <div class="category__img shadow mb-3">
+                            <img src="<%- food.image %>" loading="lazy" class="img-fluid">
+                        </div>
+                        <p class="text-center"><%= food.description %></p>
+                        <a href="/exploremenu/<%= food.id %>" class="btn btn-primary d-block mx-auto">View Details</a>
                     </div>
-                    <p></p>
-                    <p><%= food.description %></p>
-                    <a href="/exploremenu/<%= food.id %>">View Details</a>
-                </li>
+                </div>
             <% }) %>
         <% } else { %>
             <p>No food items available.</p>
         <% } %>
     </div>
-</div>
-
+  </div>
 
   <%- include('../partials/footer') %>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
+</html>
