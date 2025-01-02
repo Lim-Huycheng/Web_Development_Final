@@ -25,7 +25,7 @@ db.connect(err => {
 
 router.get('/',indexController.getListProduct);
 //link to explore-latest and random-recipe
-router.get('/explore-latest', (req, res) => {
+  router.get('/explore-latest', (req, res) => {
     res.render('index/exploremenu'); 
   });
 
@@ -35,6 +35,10 @@ router.get('/explore-latest', (req, res) => {
 
   router.get('/explore-categories', (req, res) => {
     res.render('index/explore-categories'); 
+  });
+
+  router.get('/index-review', (req, res) => {
+    res.render('index/index-review'); 
   });
 //
 
@@ -58,23 +62,23 @@ router.get('/user/contact', (req, res) => {
   res.render('user/contact', { pageTitle }); // Correct file path
 });
 
-// Route for displaying the explore menu with 10 foods
+// Route for displaying the explore menu
 router.get('/exploremenu', (req, res) => {
-  const query = 'SELECT id, name, description, image_path FROM food_menu LIMIT 10'; // Fetch 10 foods with id, name, description, and image_path
+  const query = 'SELECT id, name, price, description, image, created_at FROM products'; // Fetch 10 foods with id, name, description, and image_path
   db.query(query, (err, results) => {
       if (err) {
           console.error('Error fetching food data:', err.message);
           res.status(500).send('Internal Server Error');
           return;
       }
-      res.render('index/exploremenu', { food_menu: results }); // Pass the fetched foods to the template
+      res.render('index/exploremenu', { products: results }); // Pass the fetched foods to the template
   });
 });
 
 // Route for displaying food details
 router.get('/exploremenu/:id', (req, res) => {
   const foodId = req.params.id;
-  const query = 'SELECT * FROM food_menu WHERE id = ?'; // Fetch food details by id
+  const query = 'SELECT * FROM products WHERE id = ?'; // Fetch food details by id
   db.query(query, [foodId], (err, results) => {
       if (err) {
           console.error('Error fetching food details:', err.message);
