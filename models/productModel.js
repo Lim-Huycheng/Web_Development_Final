@@ -25,6 +25,14 @@ class Product {
         const result = await db.query('DELETE FROM products WHERE id = ?', [id]);
         return result;
       }
+
+      static async search(searchTerm) {
+        const [rows] = await db.query(
+          "SELECT * FROM products WHERE name LIKE ? OR description LIKE ?",
+          [`%${searchTerm}%`, `%${searchTerm}%`]
+        );
+        return rows;
+      }
 }
 
 
