@@ -27,59 +27,56 @@ p {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 250px;
+    list-style: none;
+    padding: 0;
 }
 
-.menu-item {
+.menu-grid li {
     background: #fff;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    text-align: left;
+    text-align: center;
     transition: transform 0.3s ease;
+    padding: 20px;
 }
 
-.menu-item:hover {
+.menu-grid li:hover {
     transform: translateY(-5px);
 }
 
-.menu-item img {
+.menu-grid img {
     width: 100%;
-    height: 150px;
+    height: auto;
+    border-radius: 30% / 30%;
     object-fit: cover;
+    margin-bottom: 15px;
 }
 
-.menu-item h2 {
+.menu-grid h3 {
     font-size: 1.5rem;
-    margin: 15px;
-}
-
-.menu-item p {
-    font-size: 1rem;
-    margin: 0 15px 10px;
-    color: #555;
-}
-
-.menu-item span {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin: 0 15px 15px;
-    display: block;
+    margin-bottom: 10px;
     color: #000;
 }
 
-.details-link {
-    display: block;
-    text-align: center;
-    background: #007BFF;
-    color: #fff;
+.menu-grid p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.menu-grid a {
+    display: inline-block;
     text-decoration: none;
-    padding: 10px;
-    border-radius: 0 0 10px 10px;
+    background: #1c4427;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
     font-weight: bold;
     transition: background 0.3s ease;
 }
 
-.details-link:hover {
-    background: #0056b3;
+.menu-grid a:hover {
+    background: #34ac62;
 }

@@ -17,16 +17,18 @@
   <%- include('../partials/header') %>
 
   <div class="menu-container">
-    <h1>Our Popular Menu</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <h1>Explore Our Menu</h1>
+    <p>Below are our menu</p>
+    <p>Click on View Details for more information. Enjoy~~</p><br>
     <div class="menu-grid">
         <% if (food_menu && food_menu.length > 0) { %>
             <% food_menu.forEach(food => { %>
                 <li>
                     <h3><%= food.name %></h3>
-                    <p><%= food.description %></p>
                     <!-- Display the food image -->
                     <img src="<%= food.image_path %>" alt="<%= food.name %>" width="200">
+                    <p></p>
+                    <p><%= food.description %></p>
                     <a href="/exploremenu/<%= food.id %>">View Details</a>
                 </li>
             <% }) %>
