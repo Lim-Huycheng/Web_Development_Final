@@ -101,14 +101,6 @@ router.get('/',indexController.getListProduct);
     res.render('index/exploremenu'); 
   });
 
-  router.get('/random-recipe', (req, res) => {
-    res.render('index/random-recipe'); 
-  });
-
-  router.get('/explore-categories', (req, res) => {
-    res.render('index/explore-categories'); 
-  });
-
   router.get('/index-review', (req, res) => {
     res.render('index/index-review'); 
   });

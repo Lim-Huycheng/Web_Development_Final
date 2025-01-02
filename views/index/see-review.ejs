@@ -1,41 +1,62 @@
-<%- include('../partials/header') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Submitted Reviews</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <%- include('../partials/header') %>
 
-<h1 class="mb-4">All Submitted Reviews</h1>
+  <div class="container my-5">
+    <h1 class="mb-4 text-center">All Submitted Reviews</h1>
 
-<table class="table table-bordered table-hover">
-    <thead>
-        <tr>
+    <!-- Responsive Table -->
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead class="table-primary">
+          <tr>
             <th>Food's Name</th>
             <th>Price</th>
             <th>Your Review</th>
             <th>Image</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% if (productReview && productReview.length > 0) { %>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (productReview && productReview.length > 0) { %>
             <% productReview.forEach(product => { %>
-                <tr>
-                    <td><%= product.food_name || 'N/A' %></td>
-                    <td><%= product.price !== null ? `$${product.price.toFixed(2)}` : 'N/A' %></td>
-                    <td><%= product.review || 'N/A' %></td>
-                    <td>
-                        <% if (product.image) { %>
-                            <img src="/uploads/<%= product.image %>" alt="Image of <%= product.food_name %>" class="img-thumbnail" width="200">
-                        <% } else { %>
-                            No image provided
-                        <% } %>
-                    </td>
-                </tr>
+              <tr>
+                <td><%= product.food_name || 'N/A' %></td>
+                <td><%= product.price !== null ? `$${product.price.toFixed(2)}` : 'N/A' %></td>
+                <td><%= product.review || 'N/A' %></td>
+                <td class="text-center">
+                  <% if (product.image) { %>
+                    <img src="/uploads/<%= product.image %>" alt="Image of <%= product.food_name %>" class="img-thumbnail" style="max-width: 150px;">
+                  <% } else { %>
+                    No image provided
+                  <% } %>
+                </td>
+              </tr>
             <% }); %>
-        <% } else { %>
+          <% } else { %>
             <tr>
-                <td colspan="4">No reviews available</td>
+              <td colspan="4" class="text-center">No reviews available</td>
             </tr>
-        <% } %>
-    </tbody>
-</table>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
 
-<%- include('../partials/footer') %>
+    <!-- Back Button -->
+    <div class="text-center mt-4">
+      <a href="/" class="btn btn-primary"><i class="fa-solid fa-house"></i>   Back to Home</a>
+    </div>
+  </div>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <%- include('../partials/footer') %>
+</body>
+</html>

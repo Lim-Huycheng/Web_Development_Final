@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= pageTitle %>-About</title>
+  <title><%= pageTitle %> - About</title>
   <!-- Link to external CSS -->
   <link href="/css/aboutus.css" rel="stylesheet">
   <!-- Bootstrap CSS -->
@@ -16,24 +16,24 @@
   <div class="hero-section">
     <h1><%= pageTitle %></h1>
     <p><%= pageDescription %></p>
-    
   </div>
 
   <!-- About Us Content -->
   <div class="container my-5">
     <div class="row align-items-center">
       <div class="col-md-6">
-        <h2>Our Mission</h2>
-        <p>
-          Welcome to the Golden plates, where passion meets flavor. Our mission is to serve mouthwatering dishes that delight your taste buds and create unforgettable dining experiences.
-        </p>
-        <p>
-          Guided by collaboration, integrity, and excellence, our team pours heart and soul into every dish we create,
-          ensuring each meal brings joy to your table every day.
-        </p>
-      </div>
+        <i class="fa-solid fa-layer-group"> Our Mission</i>
+              <p>
+                Welcome to the Golden Plates, where passion meets flavor. Our mission is to serve mouthwatering dishes that delight your taste buds and create unforgettable dining experiences.
+              </p>
+              <p>
+                Guided by collaboration, integrity, and excellence, our team pours heart and soul into every dish we create,
+                ensuring each meal brings joy to your table every day.
+              </p>
+          </div>
       <div class="col-md-6 text-center">
-        <img src="<%= missionImage %>" alt="Our Mission" class="img-fluid rounded">
+        <!-- <img src="<%= missionImage %>" alt="Our Mission" class="img-fluid rounded"> -->
+         <img src="/uploads/aboutphoto.jpg" alt="Our Mission" class="img-fluid rounded">
       </div>
     </div>
   </div>
@@ -59,6 +59,4 @@
   <%- include('../partials/footer') %> <!-- Footer Included -->
   
 </body>
-
 </html>
-
