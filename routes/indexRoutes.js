@@ -13,11 +13,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'root',
-<<<<<<< HEAD
-  database: 'gproducts'
-=======
   database: 'gproducts',
->>>>>>> 9c08e308c895ddd4641fcb8f601b90da25b1c09c
 });
 
 db.connect(err => {
