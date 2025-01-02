@@ -1,0 +1,27 @@
+<!-- In views/index/search.ejs -->
+<%- include('../partials/header') %>
+<link rel="stylesheet" href="/css/search.css">
+<div style="text-align: center; padding-bottom: 20px;">
+<h1 >Search Menu</h1>
+<div class="h5-i">
+  <h5 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-weight: 100;"><i class="fa-solid fa-circle-info"></i>  Click on image to view more detail</h5>
+</div>
+<div style="text-align: center;">
+<% if (products.length > 0) { %>
+  <div class="product-cards">
+    <% products.forEach(product => { %>
+      <div class="product-card">
+        <a href="/product/<%= product.id %>">
+        <div class="image-container">
+          <img src="<%= product.image %>" alt="<%= product.name %>" class="product-image" />
+        </div>
+        </a>
+        <h2 style="padding-top: 30px;" class="product-name"><%= product.name %></h2>
+      </div>
+    <% }); %>
+  </div>
+<% } else { %>
+  <p>No products found for "<%= searchTerm %>".</p>
+<% } %>
+</div>
+<%- include('../partials/footer') %>

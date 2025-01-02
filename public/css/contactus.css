@@ -5,7 +5,7 @@ body {
   }
   
   .hero-section {
-    background: linear-gradient(to bottom right, #4e73df, #224abe);
+    background:rgba(148, 187, 233,100);
     color: white;
     padding: 50px 20px;
     text-align: center;
@@ -19,22 +19,19 @@ body {
   .hero-section p {
     font-size: 1.2rem;
     margin-top: 15px;
+    margin: 0;
   }
   
   .contact-info {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
   }
   
   .contact-info i {
     font-size: 1.5rem;
     color: #ff4B2B;
+
   }
   
-  .contact-info h5 {
-    font-size: 1.2rem;
-    color: #ff4B2B;
-    margin-top: 10px;
-  }
   
   .contact-info p {
     color: #6c757d;

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const indexController = require('../controllers/indexController');
 const mysql = require('mysql');
+const multer = require('multer');
 
 // Middleware for overriding methods
 const methodOverride = require('method-override');
@@ -12,20 +13,95 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'root',
+<<<<<<< HEAD
   database: 'gproducts'
+=======
+  database: 'gproducts',
+>>>>>>> 9c08e308c895ddd4641fcb8f601b90da25b1c09c
 });
 
 db.connect(err => {
   if (err) {
-      console.error('Database connection failed:', err.message);
-      return;
+    console.error('Database connection failed:', err.message);
+    return;
   }
   console.log('Connected to the database');
 });
 
+// Configure Multer for file uploads
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/uploads/');
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname));
+  },
+});
+const upload = multer({ storage });
+
+// Route to display all reviews
+router.get('/index-review', (req, res) => {
+  const query = 'SELECT food_name, price, review, image FROM product_review';
+
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error fetching reviews:', err.message);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+
+    res.render('index/index-review', {
+      productReview: results,
+      success: req.query.success === 'true',
+    });
+  });
+});
+
+// Route to display the "Add New Review" form
+router.get('/index/create-review', (req, res) => {
+  res.render('index/create-review');
+});
+
+// Route to handle form submissions and save reviews to the database
+router.post('/index', upload.single('image'), (req, res) => {
+  const { name: food_name, price, description: review } = req.body;
+  const image = req.file ? req.file.filename : null;
+
+  const query = 'INSERT INTO product_review (food_name, price, review, image) VALUES (?, ?, ?, ?)';
+  const values = [food_name, price, review, image];
+
+  db.query(query, values, (err, result) => {
+    if (err) {
+      console.error('Error inserting review:', err.message);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+    res.redirect('/index-review?success=true');
+  });
+});
+
+// Route to display the reviews in a table format
+router.get('/index/see-review', (req, res) => {
+  const query = 'SELECT food_name, price, review, image FROM product_review';
+
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error fetching reviews:', err.message);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+
+    // Render the "see-review" template with data
+    res.render('index/see-review', {
+      productReview: results,
+    });
+  });
+});
+
+
 router.get('/',indexController.getListProduct);
 //link to explore-latest and random-recipe
-router.get('/explore-latest', (req, res) => {
+  router.get('/explore-latest', (req, res) => {
     res.render('index/exploremenu'); 
   });
 
@@ -35,6 +111,10 @@ router.get('/explore-latest', (req, res) => {
 
   router.get('/explore-categories', (req, res) => {
     res.render('index/explore-categories'); 
+  });
+
+  router.get('/index-review', (req, res) => {
+    res.render('index/index-review'); 
   });
 //
 
@@ -58,23 +138,23 @@ router.get('/user/contact', (req, res) => {
   res.render('user/contact', { pageTitle }); // Correct file path
 });
 
-// Route for displaying the explore menu with 10 foods
+// Route for displaying the explore menu
 router.get('/exploremenu', (req, res) => {
-  const query = 'SELECT id, name, description, image_path FROM food_menu LIMIT 10'; // Fetch 10 foods with id, name, description, and image_path
+  const query = 'SELECT id, name, price, description, image, created_at FROM products'; // Fetch 10 foods with id, name, description, and image_path
   db.query(query, (err, results) => {
       if (err) {
           console.error('Error fetching food data:', err.message);
           res.status(500).send('Internal Server Error');
           return;
       }
-      res.render('index/exploremenu', { food_menu: results }); // Pass the fetched foods to the template
+      res.render('index/exploremenu', { products: results }); // Pass the fetched foods to the template
   });
 });
 
 // Route for displaying food details
 router.get('/exploremenu/:id', (req, res) => {
   const foodId = req.params.id;
-  const query = 'SELECT * FROM food_menu WHERE id = ?'; // Fetch food details by id
+  const query = 'SELECT * FROM products WHERE id = ?'; // Fetch food details by id
   db.query(query, [foodId], (err, results) => {
       if (err) {
           console.error('Error fetching food details:', err.message);
@@ -89,7 +169,9 @@ router.get('/exploremenu/:id', (req, res) => {
   });
 });
 
+// Search route for products
+router.get("/", indexController.getListProduct); // Default route
+router.get('/search', indexController.search);
+
 
 module.exports = router;
-
-

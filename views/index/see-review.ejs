@@ -1,0 +1,38 @@
+<%- include('../partials/header') %>
+
+<h1 class="mb-4">All Submitted Reviews</h1>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Food's Name</th>
+            <th>Price</th>
+            <th>Your Review</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (productReview && productReview.length > 0) { %>
+            <% productReview.forEach(product => { %>
+                <tr>
+                    <td><%= product.food_name || 'N/A' %></td>
+                    <td><%= product.price !== null ? `$${product.price.toFixed(2)}` : 'N/A' %></td>
+                    <td><%= product.review || 'N/A' %></td>
+                    <td>
+                        <% if (product.image) { %>
+                            <img src="/uploads/<%= product.image %>" alt="Image of <%= product.food_name %>" class="img-thumbnail" width="200">
+                        <% } else { %>
+                            No image provided
+                        <% } %>
+                    </td>
+                </tr>
+            <% }); %>
+        <% } else { %>
+            <tr>
+                <td colspan="4">No reviews available</td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
+
+<a href="/index" cla

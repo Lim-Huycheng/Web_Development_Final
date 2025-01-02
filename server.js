@@ -73,6 +73,7 @@ const PORT = process.env.PORT || 3000;
 app.use('/uploads', express.static('public/uploads'));
 app.use('/product',productRoutes);
 app.use('/', indexRoutes);
+app.use(express.static('public')); // Serve static files from the 'public' directory
 
 
 app.listen(PORT,()=>{
