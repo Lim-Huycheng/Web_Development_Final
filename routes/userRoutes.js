@@ -11,10 +11,13 @@ router.get('/login', (req, res) => {
   router.get('/signup', (req, res) => {
     res.render('user/signup');  // Renders the signup.ejs view
   });
+
   
 // Routes for user operations
 router.get('/', userController.getAllUsers); // Get all users
 router.post('/signup', userController.signup); // Sign up a new user
 router.post('/login', userController.login); // Login an existing user
+
+
 
 module.exports = router;

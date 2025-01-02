@@ -3,7 +3,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: white; 
+    background-color: #ffb74d;  /* Warm orange background */
     margin: 0;
     padding: 0;
 }
@@ -21,9 +21,9 @@ body {
 
 h2 {
     text-align: center;
-    color: white;  
+    color: white;  /* Rich brown color for the title */
     font-size: 36px;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -35,7 +35,7 @@ label {
     display: block;
     font-weight: bold;
     font-size: 16px;
-    color: black;  
+    color: white;  /* Rich brown for the labels */
     margin-bottom: 8px;
 }
 
