@@ -13,13 +13,13 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'root',
-  database: 'gproducts'
+  database: 'gproducts',
 });
 
 db.connect(err => {
   if (err) {
-      console.error('Database connection failed:', err.message);
-      return;
+    console.error('Database connection failed:', err.message);
+    return;
   }
   console.log('Connected to the database');
 });
@@ -27,45 +27,70 @@ db.connect(err => {
 // Configure Multer for file uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'public/uploads/'); // Adjust path to save images in the "public/uploads" folder
+    cb(null, 'public/uploads/');
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname)); // Append timestamp to avoid duplicate filenames
+    cb(null, Date.now() + path.extname(file.originalname));
   },
 });
 const upload = multer({ storage });
 
 // Route to display all reviews
 router.get('/index-review', (req, res) => {
-  const query = 'SELECT * FROM product_review'; // Fetch all reviews from the "reviews" table
+  const query = 'SELECT food_name, price, review, image FROM product_review';
+
   db.query(query, (err, results) => {
     if (err) {
       console.error('Error fetching reviews:', err.message);
       res.status(500).send('Internal Server Error');
       return;
     }
-    res.render('index/index-review', { 'product_review': results }); // Pass the fetched reviews to the EJS template
+
+    res.render('index/index-review', {
+      productReview: results,
+      success: req.query.success === 'true',
+    });
   });
 });
 
 // Route to display the "Add New Review" form
 router.get('/index/create-review', (req, res) => {
-  res.render('index/create-review'); // Render the review creation form
+  res.render('index/create-review');
 });
 
 // Route to handle form submissions and save reviews to the database
 router.post('/index', upload.single('image'), (req, res) => {
-  const { name, price, description } = req.body;
-  const image = req.file ? `/uploads/${req.file.filename}` : null;
+  const { name: food_name, price, description: review } = req.body;
+  const image = req.file ? req.file.filename : null;
 
-  const query = 'INSERT INTO reviews (food_name, price, review, image) VALUES (?, ?, ?, ?)';
-  db.query(query, [name, parseFloat(price), description, image], (err) => {
+  const query = 'INSERT INTO product_review (food_name, price, review, image) VALUES (?, ?, ?, ?)';
+  const values = [food_name, price, review, image];
+
+  db.query(query, values, (err, result) => {
     if (err) {
-      console.error('Error saving the review:', err.message);
+      console.error('Error inserting review:', err.message);
       res.status(500).send('Internal Server Error');
       return;
     }
-    res.redirect('/index-review'); // Redirect to the reviews page after successful submission
+    res.redirect('/index-review?success=true');
+  });
+});
+
+// Route to display the reviews in a table format
+router.get('/index/see-review', (req, res) => {
+  const query = 'SELECT food_name, price, review, image FROM product_review';
+
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error fetching reviews:', err.message);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+
+    // Render the "see-review" template with data
+    res.render('index/see-review', {
+      productReview: results,
+    });
   });
 });
 
