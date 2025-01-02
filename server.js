@@ -38,6 +38,7 @@ app.use((req, res, next) => {
 
 
 app.set('view engine','ejs');
+app.set('views', './views');
 
 //######### login
 app.get('/user/login', (req, res) => {
