@@ -3,25 +3,30 @@ body {
   background-color: #ffe6cc;  /* Soft cream background */
   margin: 0;
   padding: 0;
+ 
 }
 
 .login-container {
+  background-image: url(/uploads/natural-bg.jpg);
   max-width: 420px;
   margin: 100px auto;
-  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-  background: linear-gradient(to right, #FF4B2B, #FF416C);
+  background-color: rgba(255,0,0,0.5);
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   border: 2px solid #ffb74d;  /* Subtle orange border */
 }
-
+.login-container h2{
+  color: yellow;
+}
+.login-container p{
+  color:yellow;
+}
 h2 {
-  text-align: center;
-  color: black;  /* Warm orange color */
+  text-align: center; 
   font-size: 32px;
   margin-bottom: 20px;
-  font-family: 'Lobster', cursive;  /* Food-friendly cursive font */
+  font-family: 'Lobster', cursive; 
 }
 
 .form-group {
@@ -32,7 +37,7 @@ label {
   display: block;
   font-weight: bold;
   font-size: 18px;
-  color: black;
+  color:yellow;
   margin-bottom: 5px;
 }
 
@@ -42,7 +47,7 @@ input {
   font-size: 18px;
   border: 2px solid #ff7043;
   border-radius: 8px;
-  background-color: #fff3e0;  /* Light peachy color */
+  background-color: whitesmoke;  /* Light peachy color */
   box-sizing: border-box;
   margin-top: 8px;
 }
@@ -67,7 +72,7 @@ button {
 }
 
 button:hover {
-  background-color: #ff7043;  /* A darker orange on hover */
+  background-color:#ffe6cc;  /* A darker orange on hover */
 }
 
 button:active {
