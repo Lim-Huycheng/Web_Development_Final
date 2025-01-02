@@ -1,4 +1,4 @@
-                                                                                                                                                                                                                                                          body {
+body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #ffe6cc;  /* Soft cream background */
   margin: 0;
@@ -9,7 +9,7 @@
   max-width: 420px;
   margin: 100px auto;
   background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+  background: linear-gradient(to right, #FF4B2B, #FF416C);
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -18,7 +18,7 @@
 
 h2 {
   text-align: center;
-  color: #ff7043;  /* Warm orange color */
+  color: black;  /* Warm orange color */
   font-size: 32px;
   margin-bottom: 20px;
   font-family: 'Lobster', cursive;  /* Food-friendly cursive font */
@@ -32,7 +32,7 @@ label {
   display: block;
   font-weight: bold;
   font-size: 18px;
-  color: #ff7043;
+  color: black;
   margin-bottom: 5px;
 }
 
@@ -49,15 +49,15 @@ input {
 
 input:focus {
   outline: none;
-  border-color: #ff9800;  /* A darker orange for focus effect */
+  border-color: #ff9800;  
   /* box-shadow: 0 0 10px rgba(255, 152, 0, 0.5); */
-}
+} 
 
 button {
   width: 100%;
   padding: 15px;
   font-size: 18px;
-  background-color: #ff9800;  /* Rich orange color */
+  background-color: white;  /* Rich orange color */
   color: white;
   border: none;
   border-radius: 8px;
@@ -77,7 +77,7 @@ button:active {
 p {
   text-align: center;
   font-size: 16px;
-  color: #5d4037;  /* Subtle brown for a natural feel */
+  color: black;  
   margin-top: 20px;
 }
 
@@ -89,6 +89,17 @@ a {
 a:hover {
   text-decoration:underline;
 }
-.submit button{
-	border-radius: 20px;
+.submit button {
+  border-radius: 20px;
+}
+.submit button a{
+  text-decoration: none;
+  border-bottom: white;
+}
+.to-signup a{
+  color: aqua;
+}
+.to-signup a{
+  text-decoration: none;
+  border-bottom: 1px white;
 }
