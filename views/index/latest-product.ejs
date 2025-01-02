@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/latest_product.css">
+</head>
+<body>
+    <h1>Latest Products</h1>
+    <div id="latest-products">
+        <% if (products.length > 0) { %>
+            <div class="latest-product-grid">
+                <% products.forEach(product => { %>
+                    <div class="latest-product-card">
+                        <img src="<%= product.image %>" alt="<%= product.name %>" class="latest-product-image" />
+                        <h3 class="latest-product-title"><%= product.name %></h3>
+                        <p class="latest-product-description"><%= product.description %></p>
+                        <p class="latest-product-price">Price: $<%= product.price.toFixed(2) %></p>
+                        <small class="latest-product-date">Added on: <%= product.created_at.toDateString() %></small>
+                    </div>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <p>No products available.</p>
+        <% } %>
+    </div>
+    
+</body>
+</html>

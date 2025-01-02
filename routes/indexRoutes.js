@@ -136,16 +136,17 @@ router.get('/user/contact', (req, res) => {
 
 // Route for displaying the explore menu
 router.get('/exploremenu', (req, res) => {
-  const query = 'SELECT id, name, price, description, image, created_at FROM products'; // Fetch 10 foods with id, name, description, and image_path
+  const query = 'SELECT id, name, price, description, image, created_at FROM products';
   db.query(query, (err, results) => {
       if (err) {
           console.error('Error fetching food data:', err.message);
           res.status(500).send('Internal Server Error');
           return;
       }
-      res.render('index/exploremenu', { products: results }); // Pass the fetched foods to the template
+      res.render('index/exploremenu', { products: results });
   });
 });
+
 
 // Route for displaying food details
 router.get('/exploremenu/:id', (req, res) => {
@@ -169,5 +170,42 @@ router.get('/exploremenu/:id', (req, res) => {
 router.get("/", indexController.getListProduct); // Default route
 router.get('/search', indexController.search);
 
+// Show 5 latest foods from products
+router.get('/', async (req, res) => {
+  try {
+      // Fetch 5 most recent products
+      const [products] = await db.query(
+          'SELECT * FROM products ORDER BY created_at DESC LIMIT 5'
+      );
+
+      // Ensure only 5 products are being sent
+      console.log('Fetched Products:', products); // Debugging
+
+      // Render the homepage with the 5 products
+      res.render('index/index', { products });
+  } catch (error) {
+      console.error('Error fetching products:', error);
+      res.status(500).send('Internal Server Error');
+  }
+});
+
+//Show 5 latest products
+router.get('/latest-product', async (req, res) => {
+  try {
+      // Fetch 5 most recent products
+      const [products] = await db.query(
+          'SELECT * FROM products ORDER BY created_at DESC LIMIT 5'
+      );
+
+      // Ensure only 5 products are being sent
+      console.log('Fetched Products:', products); // Debugging
+
+      // Render the homepage with the 5 products
+      res.render('index/latest-product', { products });
+  } catch (error) {
+      console.error('Error fetching products:', error);
+      res.status(500).send('Internal Server Error');
+  }
+});
 
 module.exports = router;

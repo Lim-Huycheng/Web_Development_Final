@@ -31,32 +31,13 @@
     </div>
   </div>  
 
-<!-- Categories Menu -->
-<h1>Explore Our Categories</h1>
-<div class="row row-cols-2 row-cols-lg-6 g-2 g-la-3 py-4">
-  
-  <% if(products != '') { %>
-    <% products.forEach(function(products, index) { %>
-        <a href="/product/<%= products.id %>" class="col text-center category__link">
-          <div class="category__img shadow">
-            <img src="<%- products.image%>" loading="Lazy" class="img-fluid">
-          </div>
-          <div class="pt-1"><%- products.name %></div>
-        </a>
-    <% }) %>
-  <% } %>
-
-</div>
-<!-- Explore Menu End -->
 
 
+<!-- See Latest Menu Start-->
+<%- include('latest-product') %>
 
-<!-- Top Menu Start -->
+<!-- See Latest Menu End -->
 
-
-
-
-<!-- Top Menu End -->
 
 <!-- Submit Start -->
 <section class="px-4 py-5 my-5 text-center">
