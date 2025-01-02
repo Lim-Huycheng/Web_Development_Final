@@ -27,12 +27,12 @@ body {
   
   .contact-info i {
     font-size: 1.5rem;
-    color: #4e73df;
+    color: #ff4B2B;
   }
   
   .contact-info h5 {
     font-size: 1.2rem;
-    color: #4e73df;
+    color: #ff4B2B;
     margin-top: 10px;
   }
   
@@ -47,7 +47,7 @@ body {
   footer {
     text-align: center;
     padding: 15px;
-    background-color: #4e73df;
+    background-color: #ff4B2B;
     color: white;
   }
   
