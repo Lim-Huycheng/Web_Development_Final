@@ -1,0 +1,24 @@
+/* Navigation list container */
+.nav {
+    gap: 20px; /* Adds space between the links */
+    display: flex; /* Ensures even spacing between items */
+    justify-content: center; /* Center-aligns the links */
+  }
+  
+  /* Default styles for navigation links */
+  .nav-link {
+    color: #333; /* Default text color */
+    font-size: 1rem; /* Adjust font size */
+    text-transform: uppercase; /* Optional: Makes text uppercase */
+    transition: color 0.3s ease-in-out, background-color 0.5s ease-in-out;
+    padding: 5px 10px;
+    border-radius: 10px; 
+  }
+  
+  
+  .nav-link:hover {
+    color: #007bff; 
+    background-color: red; 
+    text-decoration: none; 
+  }
+  
