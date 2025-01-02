@@ -89,6 +89,10 @@ router.get('/exploremenu/:id', (req, res) => {
   });
 });
 
+// Search route for products
+router.get("/", indexController.getListProduct); // Default route
+router.get('/search', indexController.search);
+
 
 module.exports = router;
 

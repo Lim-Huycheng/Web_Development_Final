@@ -11,4 +11,17 @@ exports.getListProduct = async (req,res) => {
     }
 };
 
-
+exports.search = async (req, res) => {
+    try {
+      const searchTerm = req.query.searchTerm; // Get the search term from the query string
+  
+      // Use the search method in the Product model to find matching products
+      const products = await Product.search(searchTerm);
+  
+      // Render the search results page and pass the products
+      res.render("index/search", { products, searchTerm });
+    } catch (err) {
+      console.error("Error during search:", err);
+      res.status(500).send("Internal Server Error");
+    }
+  };
