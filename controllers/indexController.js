@@ -1,14 +1,24 @@
 const Product = require("../models/productModel");
 
-exports.getListProduct = async (req,res) => {
-    try{
-        const products = await Product.getAll();
-        title = "List Product";
-        res.render('index/index',{products ,title});
+//exports.getListProduct = async (req,res) => {
+//    try{
+//        const products = await Product.getAll();
+//        title = "List Product";
+//        res.render('index/index',{products ,title});
     
-    }catch(err){
-        res.status(500).send("Error fetching products");
-    }
+//    }catch(err){
+//        res.status(500).send("Error fetching products");
+//    }
+//};
+
+exports.getListRecentProducts = async (req, res) => {
+  try {
+      const products = await Product.getRecent(); // Fetch 5 most recent products
+      const title = "Recent Products";
+      res.render('index/index', { products, title });
+  } catch (err) {
+      res.status(500).send("Error fetching recent products");
+  }
 };
 
 exports.search = async (req, res) => {

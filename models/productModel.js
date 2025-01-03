@@ -6,6 +6,11 @@ class Product {
         return rows;
     }
 
+    static async getRecent() {
+      const [rows] = await db.query('SELECT * FROM products ORDER BY created_at DESC LIMIT 5');
+      return rows;
+    }
+
     static async create(data){
         const result = await db.query("INSERT INTO products (name,price, description,image) VALUE (?,?,?,?)",[data.name, data.price,data.description,data.image]);
         return result;

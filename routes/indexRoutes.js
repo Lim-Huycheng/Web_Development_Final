@@ -95,17 +95,13 @@ router.get('/index/see-review', (req, res) => {
 });
 
 
-router.get('/',indexController.getListProduct);
-//link to explore-latest and random-recipe
+//link to explore-latest
   router.get('/explore-latest', (req, res) => {
     res.render('index/exploremenu'); 
   });
 
-  router.get('/index-review', (req, res) => {
-    res.render('index/index-review'); 
-  });
-//
 
+//About Us section
 router.get('/user/about', (req, res) => {
     const pageTitle = 'About Us';
     const pageDescription = 'Welcome to our website! Learn more about who we are and what we do.';
@@ -120,7 +116,7 @@ router.get('/user/about', (req, res) => {
     res.render('user/about', { pageTitle, pageDescription, missionImage, teamMembers });
 });
 
-
+//Contact Us page
 router.get('/user/contact', (req, res) => {
   const pageTitle = 'Contact Us';
   res.render('user/contact', { pageTitle }); // Correct file path
@@ -159,45 +155,29 @@ router.get('/exploremenu/:id', (req, res) => {
 });
 
 // Search route for products
-router.get("/", indexController.getListProduct); // Default route
+//router.get("/", indexController.getListProduct); // Route to show all products
 router.get('/search', indexController.search);
 
-// Show 5 latest foods from products
-router.get('/', async (req, res) => {
-  try {
-      // Fetch 5 most recent products
-      const [products] = await db.query(
-          'SELECT * FROM products ORDER BY created_at DESC LIMIT 5'
-      );
+router.get("/", indexController.getListRecentProducts); //route to show 5 recents  product
 
-      // Ensure only 5 products are being sent
-      console.log('Fetched Products:', products); // Debugging
-
-      // Render the homepage with the 5 products
-      res.render('index/index', { products });
-  } catch (error) {
-      console.error('Error fetching products:', error);
-      res.status(500).send('Internal Server Error');
-  }
-});
 
 //Show 5 latest products
-router.get('/latest-product', async (req, res) => {
-  try {
+//router.get('/latest-product', async (req, res) => {
+//  try {
       // Fetch 5 most recent products
-      const [products] = await db.query(
-          'SELECT * FROM products ORDER BY created_at DESC LIMIT 5'
-      );
+//      const [products] = await db.query(
+//          'SELECT * FROM products ORDER BY created_at DESC LIMIT 5'
+//      );
 
       // Ensure only 5 products are being sent
-      console.log('Fetched Products:', products); // Debugging
+//      console.log('Fetched Products:', products); // Debugging
 
       // Render the homepage with the 5 products
-      res.render('index/latest-product', { products });
-  } catch (error) {
-      console.error('Error fetching products:', error);
-      res.status(500).send('Internal Server Error');
-  }
-});
+//      res.render('index/latest-product', { products });
+//  } catch (error) {
+//      console.error('Error fetching products:', error);
+//      res.status(500).send('Internal Server Error');
+//  }
+//});
 
 module.exports = router;
