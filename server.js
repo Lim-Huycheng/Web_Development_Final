@@ -19,8 +19,6 @@ app.use(express.urlencoded({ extended: true }));
 //   // Configure flash middleware
 // app.use(flash());
   
-
-
 app.use(session({ 
     secret:'cyber cadt idri idt idg', 
     saveUninitialized: true, 
@@ -48,7 +46,6 @@ app.get('/user/login', (req, res) => {
  app.post('/user/login', (req, res) => {
   const { username, password } = req.body;
 
- 
 });
  app.use(express.static(path.join(__dirname, 'public')));
 //###################
@@ -64,11 +61,7 @@ app.use('/user', userRoutes);
 app.set('views', path.join(__dirname, 'views'))
 //
 
-
-
 const PORT = process.env.PORT || 3000;
-
-
 
 app.use('/uploads', express.static('public/uploads'));
 app.use('/product',productRoutes);
