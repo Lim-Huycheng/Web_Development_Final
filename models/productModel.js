@@ -7,7 +7,7 @@ class Product {
     }
 
     static async getRecent() {
-      const [rows] = await db.query('SELECT * FROM products ORDER BY created_at DESC LIMIT 5');
+      const [rows] = await db.query('SELECT * FROM products ORDER BY created_at DESC LIMIT 6');
       return rows;
     }
 
